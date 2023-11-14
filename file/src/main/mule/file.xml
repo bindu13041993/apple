@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:ftp="http://www.mulesoft.org/schema/mule/ftp"
+	xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/ftp http://www.mulesoft.org/schema/mule/ftp/current/mule-ftp.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<file:config name="File_Config" doc:name="File Config" doc:id="7fca536b-30f2-4bf9-9ab8-7818e4fb67cc" />
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="a8af4744-bb62-4a8c-b025-ea18be15da03" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<file:config name="File_Config1" doc:name="File Config" doc:id="cda38c22-ae1d-49c8-858e-aebede439b16" />
+	<file:config name="File_Config2" doc:name="File Config" doc:id="1c32e5d0-a2c7-4262-81c1-63f4dcb8107b" />
+	<flow name="fileFlow" doc:id="55fc967d-6e34-43e9-94fd-724850752996" >
+		<http:listener doc:name="Listener" doc:id="dfa96ad0-11d4-43f0-93f8-8aceffef8fe9" config-ref="HTTP_Listener_config" path="async"/>
+		<logger level="INFO" doc:name="1" doc:id="e4a93cb5-874a-4293-ba99-f32dcdf9507d" message="1"/>
+		<async doc:name="Async flow" doc:id="96db0328-eb4c-44e5-9400-19780a8b3eea" >
+			<logger level="INFO" doc:name="2" doc:id="e0d8e4af-63ed-4a9c-a527-b5147748d732" message="2"/>
+			<logger level="INFO" doc:name="3" doc:id="211b2c0c-5fd7-4107-9a4e-91e7a2a85c1d" message="3"/>
+			<logger level="INFO" doc:name="4" doc:id="21b8474f-076f-486e-b36f-990a53b7d174" message="4"/>
+			<logger level="INFO" doc:name="5" doc:id="e5d6efc2-6bac-49f8-b06c-2923c15d5ea9" message="5"/>
+			<logger level="INFO" doc:name="6" doc:id="63a1c864-08f7-4ec5-90a7-1d082238b70d" message="6"/>
+		</async>
+		<flow-ref doc:name="calling sub flow" doc:id="94f6d8ed-d349-4b4c-9041-dacfab7ea734" name="Sub_Flow"/>
+		<logger level="INFO" doc:name="7" doc:id="2ecca68b-4f48-4c7e-af3f-4e0fe35912df" message="7"/>
+		<logger level="INFO" doc:name="8" doc:id="48becc74-8e1e-4750-9e46-b5088a92e5ff" message="8"/>
+	</flow>
+	<sub-flow name="Sub_Flow" doc:id="051975e3-9199-4195-919a-95fc63e8dea8" >
+		<logger level="INFO" doc:name="Logger" doc:id="7d8c5444-1892-46c7-9cf8-2f3c5e05dfc6" message="welcome to sub flow"/>
+	</sub-flow>
+</mule>
