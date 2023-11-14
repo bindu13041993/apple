@@ -28,5 +28,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</flow>
 	<sub-flow name="Sub_Flow" doc:id="051975e3-9199-4195-919a-95fc63e8dea8" >
 		<logger level="INFO" doc:name="Logger" doc:id="7d8c5444-1892-46c7-9cf8-2f3c5e05dfc6" message="welcome to sub flow"/>
+		<logger level="INFO" doc:name="Logger" doc:id="7d8c5444-1892-46c7-9cf8-2f3c5e05dfc6" message="one"/>
+		<logger level="INFO" doc:name="Logger" doc:id="7d8c5444-1892-46c7-9cf8-2f3c5e05dfc6" message="two"/>
 	</sub-flow>
 </mule>
