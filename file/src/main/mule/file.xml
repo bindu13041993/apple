@@ -21,6 +21,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 			<logger level="INFO" doc:name="4" doc:id="21b8474f-076f-486e-b36f-990a53b7d174" message="4"/>
 			<logger level="INFO" doc:name="5" doc:id="e5d6efc2-6bac-49f8-b06c-2923c15d5ea9" message="5"/>
 			<logger level="INFO" doc:name="6" doc:id="63a1c864-08f7-4ec5-90a7-1d082238b70d" message="6"/>
+			<logger level="INFO" doc:name="9" doc:id="a9b9e189-1cb0-4d82-a8ff-7df4f237e9aa" message="9"/>
 		</async>
 		<flow-ref doc:name="calling sub flow" doc:id="94f6d8ed-d349-4b4c-9041-dacfab7ea734" name="Sub_Flow"/>
 		<logger level="INFO" doc:name="7" doc:id="2ecca68b-4f48-4c7e-af3f-4e0fe35912df" message="7"/>
