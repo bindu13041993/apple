@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="58e78c0b-22a0-4a45-a5cc-a5ef946694fa" >
+		<http:listener-connection host="localhost" port="8081" />
+	</http:listener-config>
+	<flow name="productFlow" doc:id="0a5bf117-29f9-417b-8826-7843fd257f9a" >
+		<http:listener doc:name="Listener" doc:id="d5677e26-d671-4b53-8d75-498207f00780" config-ref="HTTP_Listener_config" path="product"/>
+		<logger level="INFO" doc:name="Logger" doc:id="72b0697a-22e9-4484-b756-780a84305e77" message="this is main pdct"/>
+		<flow-ref doc:name="Flow Reference" doc:id="e3d3b4b0-c661-4157-93da-ad712ba0d7a5" name="productFlow1"/>
+		<flow-ref doc:name="Flow Reference" doc:id="5979f76e-a1ea-461f-be27-f7d1936081d7" name="productSub_Flow"/>
+		<logger level="INFO" doc:name="Logger" doc:id="27eb04fb-b0c8-4cd8-b445-75c962dc5cc1" message="all products deployed"/>
+	</flow>
+	<flow name="productFlow1" doc:id="5c6e0868-dbc7-4a9d-ae90-771c28312337" >
+		<logger level="INFO" doc:name="sub flow" doc:id="1fe324ff-f310-4322-b60a-1ba2404f6590" message="sub product"/>
+	</flow>
+	<sub-flow name="productSub_Flow" doc:id="cde2e1fa-a647-4e91-b822-21b6e70e058b" >
+		<logger level="INFO" doc:name="privateflow" doc:id="7fa9f4be-cd2a-4efd-8310-aa66a03361f2" message="private product"/>
+	</sub-flow>
+</mule>
